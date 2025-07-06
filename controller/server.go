@@ -10,3 +10,7 @@ func (akshay *Server) NewServer(pgstore store.Postgres) {
 	akshay.PostgressDb = &pgstore
 	akshay.PostgressDb.NewStore()
 }
+
+type ServerOperation interface {
+	NewServer(pgstore store.Postgres)
+}

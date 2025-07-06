@@ -3,14 +3,14 @@ package main
 import (
 	"fmt"
 
+	"github.com/akshaykumar-tech/school-management/api"
 	"github.com/akshaykumar-tech/school-management/controller"
-	"github.com/akshaykumar-tech/school-management/store"
 )
 
 func main() {
-	server := controller.Server{}
 
-	server.NewServer(store.Postgres{})
+	api := api.ApiRouts{}
+	api.Startapp(controller.Server{})
 
-	fmt.Println("server is ", server)
+	fmt.Println("server is ", api)
 }
