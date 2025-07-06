@@ -13,7 +13,7 @@ type Postgres struct {
 }
 
 func (store *Postgres) NewStore() {
-	dsn := "host=localhost user=postgres password=postgres dbname=postgres port=5432 sslmode=disable"
+	dsn := "host=localhost user=postgres password=postgres dbname=go_school port=5433 sslmode=disable"
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatal("❌ Failed to connect to database:", err)
@@ -22,5 +22,12 @@ func (store *Postgres) NewStore() {
 	}
 
 	fmt.Println("✅ Connected to PostgreSQL via GORM")
+
+}
+
+
+type StoreOperation interface {
+
+	NewStore()
 
 }
